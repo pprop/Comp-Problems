@@ -1,0 +1,55 @@
+Program to find remainder when large number is divided by 11
+Given a number n, the task is to find the remainder when n is divided by 11. The input of number may be very large.
+
+Examples:
+
+Input : str = 13589234356546756
+Output : 6
+
+Input : str = 3435346456547566345436457867978
+Output : 4
+
+TRICK::::
+      1. Store number in string.
+2. Count length of number string.
+3. Convert string character one by one 
+into digit and check if it's less than
+11. Then continue for next character 
+otherwise take remainder and use 
+remainder for next number.
+4. We get remainder.
+
+Ex. str = "1345"
+    len = 4
+    rem = 3
+
+
+
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+// Function to return remainder 
+int remainder(string str) 
+{ 
+    // len is variable to store the 
+    // length of number string. 
+    int len = str.length(); 
+  
+    int num, rem = 0; 
+  
+    // loop that find remainder 
+    for (int i = 0; i < len; i++) { 
+        num = rem * 10 + (str[i] - '0'); 
+        rem = num % 11; 
+    } 
+  
+    return rem; 
+} 
+  
+// Driver code 
+int main() 
+{ 
+    string str = "3435346456547566345436457867978"; 
+    cout << remainder(str); 
+    return 0; 
+} 
